@@ -68,6 +68,18 @@ public  List<Compra> listaCompras() throws SQLException   {
 	}
 
 
+public  idCompra getNroCompra() throws SQLException   {
+	
+	idCompra ultimoValor = null;
+	
+	       ResultSet rsr = this.stm.executeQuery("SELECT * FROM compra ORDER BY idCompra DESC");
+	       if(rsr.next()){
+	          ultimoValor = new idCompra(rsr.getInt(1), rsr.getInt(2));
+	           
+	       }
+	       
+	   		return ultimoValor;
+	}
 
 public int eliminarJuego(int id) throws SQLException {
 	
@@ -92,12 +104,25 @@ public int agregarJuego(Juego juego) throws SQLException {
 
 public int agregarCompra(Compra compra) throws SQLException {
 	
-	String sqlQ	= "insert into compras (idJuego, cantidadJuego, idCliente) values (?,?,?)";
+	String sqlQ	= "insert into compras (idCompra, idJuego, cantidadJuego, idCliente) values (?,?,?,?)";
 	PreparedStatement stm  =  this.con.prepareStatement(sqlQ);
 	
-	stm.setInt(1, compra.getIdJuego());
-	stm.setInt(2, compra.getCantidadJuego());
-	stm.setInt(3, compra.getIdCliente());
+	stm.setInt(1, compra.getIdCompra());
+	stm.setInt(2, compra.getIdJuego());
+	stm.setInt(3, compra.getCantidadJuego());
+	stm.setInt(4, compra.getIdCliente());
+	
+	
+	return stm.executeUpdate();
+	
+	}	
+
+public int setCompra(idCompra idCompra) throws SQLException {
+	
+	String sqlQ	= "insert into compra (idCliente) values (?)";
+	PreparedStatement stm  =  this.con.prepareStatement(sqlQ);
+	
+	stm.setInt(1, idCompra.getIdCliente());
 	
 	
 	return stm.executeUpdate();

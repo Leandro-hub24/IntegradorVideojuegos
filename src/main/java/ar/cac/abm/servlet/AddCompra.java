@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import ar.cac.abm.clases.Conexion;
+import ar.cac.abm.clases.idCompra;
 import ar.cac.abm.clases.Compra;
 
 /**
@@ -62,11 +63,58 @@ public class AddCompra extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		Conexion con = new Conexion("prueba","12345","ventajuegos") ;
 		
-		int i = 0;
+			
+			
+				
+				try {
+					/*if (0 != con.agregarCompra(new Compra(idCompra.getIdCompra()+1,Integer.parseInt(idJuego[i]),Integer.parseInt(cantidadJuego[i]),Integer.parseInt(idCliente)))) {
+	
+						pw.println("Compra realizada");*/
+				        idCompra idCompra = con.getNroCompra();
+				        int i = 0;
+						if(idCompra == null) {							
+							con.setCompra(new idCompra(Integer.parseInt(idCliente)));
+							while(i < idJuego.length) {
+							if (0 != con.agregarCompra(new Compra(1,Integer.parseInt(idJuego[i]),Integer.parseInt(cantidadJuego[i]),Integer.parseInt(idCliente)))) {
+							
+								pw.println("Compra realizada");
+							}else {
+								pw.println("NO SE AGREGO");
+							}
+							i++;
+							}
+						}
+						else {
+							con.setCompra(new idCompra(idCompra.getIdCompra()+1,Integer.parseInt(idCliente)));
+							while(i < idJuego.length) {
+							if (0 != con.agregarCompra(new Compra(idCompra.getIdCompra()+1,Integer.parseInt(idJuego[i]),Integer.parseInt(cantidadJuego[i]),Integer.parseInt(idCliente)))) {
+							
+								pw.println("Compra realizada");
+							}else {
+								pw.println("NO SE AGREGO");
+							}
+							i++;
+							}
+						}
+				      
+					
+					} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					}
+					
+				
+		pw.print("<meta http-equiv='refresh' content=5;URL='index.html'>");
+	
+		}
+	}
+		
+		
+		/*int i = 0;
 		while(i < idJuego.length) {
 			
 			try {
-				if (0 != con.agregarCompra(new Compra( Integer.parseInt(idJuego[i]),Integer.parseInt(cantidadJuego[i]),Integer.parseInt(idCliente)))) {
+				if (0 != con.agregarCompra(new Compra(idCompra,Integer.parseInt(idJuego[i]),Integer.parseInt(cantidadJuego[i]),Integer.parseInt(idCliente)))) {
 
 					pw.println("Compra realizada");
 			        
@@ -79,11 +127,11 @@ public class AddCompra extends HttpServlet {
 				}
 				i++;
 			
-		}
+		}*/
 		
 		
-		pw.print("<meta http-equiv='refresh' content=5;URL='index.html'>");
+		
 	
-	}
+	
 
-}
+

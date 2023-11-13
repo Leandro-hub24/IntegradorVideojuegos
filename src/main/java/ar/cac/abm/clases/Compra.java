@@ -2,6 +2,7 @@ package ar.cac.abm.clases;
 
 public class Compra {
 	private int id;
+	private int idCompra;
 	private int idJuego;
 	private int cantidadJuego;
 	private int idCliente;
@@ -9,20 +10,19 @@ public class Compra {
 	public Compra() {
 		super();
 	}
-	
-	
 
-	public Compra(int idJuego, int cantidadJuego, int idCliente) {
+	public Compra(int idCompra, int idJuego, int cantidadJuego, int idCliente) {
 		super();
+		this.idCompra = idCompra;
 		this.idJuego = idJuego;
 		this.cantidadJuego = cantidadJuego;
 		this.idCliente = idCliente;
 	}
 
-
-	public Compra(int id, int idJuego, int cantidadJuego, int idCliente) {
+	public Compra(int id, int idCompra, int idJuego, int cantidadJuego, int idCliente) {
 		super();
 		this.id = id;
+		this.idCompra = idCompra;
 		this.idJuego = idJuego;
 		this.cantidadJuego = cantidadJuego;
 		this.idCliente = idCliente;
@@ -59,6 +59,14 @@ public class Compra {
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
+
+	public int getIdCompra() {
+		return idCompra;
+	}
+
+	public void setIdCompra(int idCompra) {
+		this.idCompra = idCompra;
+	}
 	
-	
+
 }
