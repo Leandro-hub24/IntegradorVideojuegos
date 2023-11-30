@@ -67,6 +67,9 @@
             <li><a href="#">Sobre nosotros</a></li>
             <li><a href="#">Contacto</a></li>
         </ul>
+        <div class="login">
+            <a href="login.html" id="linkLogin"><button id="botonLogin">Login</button></a>
+        </div>
         <div class="carS">
             <img src="images/carrito-de-compras.png" alt="" id="carri" onclick="showCarrito()"><sup
                 id="cantCarrito"></sup>
@@ -164,13 +167,13 @@
     
    <!-- <input type="text" style="display: none;" id="idJuego-txt" name="idJuego-txt">
     <input type="text" style="display: none;" id="cantidadJuego-txt" name="cantidadJuego-txt"> -->
-    
+    <form method="post" action="">
     <div class="carrito" id="carrito">
         <span class="material-symbols-outlined" id="close" onclick="cerrarCarrito()">
             close
         </span>
         <p>Carrito de compras</p>
-        <form method="post" action="">
+        
 			<input type="number" style="display: none;" id="idCliente-txt" value="1" name="idCliente-txt">
         	<div class="cardsCa" id="cardsCa">
 
@@ -183,9 +186,9 @@
             	</div>
             	<button formaction="AddCompra" formenctype="application/x-www-form-urlencoded" id="boton">Comprar</button>
         	</div>
-        </form>
+        
     </div>
-    
+    </form>
     
     <!-- footer -->
 

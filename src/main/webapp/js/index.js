@@ -83,9 +83,8 @@ let compras = datosCompras
 
 
 //let catalogo = inicial
-
+c1 = 1
 let cards = document.getElementById("cards")
-let c1 = 1
 let compra = ([{idJuego: "", cantidadJuego: "", idCliente: c1}])
 let cJ = 0
 

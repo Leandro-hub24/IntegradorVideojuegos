@@ -14,6 +14,8 @@ public class Conexion {
 	
 	public Connection con;
 	public Statement stm;
+	public Connection con1;
+	public Statement stm1;
 	
 	public Conexion (String usuario, String pass , String database) {
 		
@@ -45,6 +47,25 @@ public  List<Juego> listaJuegos() throws SQLException   {
 		
 		
 		return juego ;
+		
+	   			
+	}
+
+public  Usuario listarUsuario(int id) throws SQLException   {
+	
+	   ResultSet rs =  this.stm.executeQuery("select * from usuarios  WHERE id="+id);
+	   rs.next();
+	   Usuario user = new Usuario(rs.getInt(1),rs.getString(2) ,rs.getString(3), rs.getString(4) ,rs.getString(5));
+			
+		//while (rs.next()){
+			
+			//user=(new Usuario(rs.getInt(1),rs.getString(2) ,rs.getString(3), rs.getString(4) ,rs.getString(5)));
+					
+		//}
+		
+		
+		
+		return user ;
 		
 	   			
 	}
@@ -171,6 +192,55 @@ public int actualizarJuego(Juego juego) throws SQLException {
 		}
 		
 	}
+	
+public Usuario usuarioLog(String user , String pass) {
+		
+		String sqlQ	= "Select * from usuarios" ;
+		PreparedStatement stm;
+		Usuario usuarioLog = null;
+		
+		try {
+			stm = this.con.prepareStatement(sqlQ);
+			
+			ResultSet rs = stm.executeQuery(sqlQ);
+			
+			while (rs.next()) {
+				
+				
+				if (user.equals(rs.getString(2)) && pass.equals(rs.getString(3)) ) {
+					
+					
+					usuarioLog = new Usuario(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+					
+				}
+					
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//System.out.println(usuarioLog.getUsuario());
+		return usuarioLog;
+				
+	}
+
+	public int agregarUsuario(Usuario usuario) throws SQLException {
+		
+		String sqlQ	= "insert into usuarios (usuario , password , email, rol) values (?,?,?,?)";
+		PreparedStatement stm  =  this.con.prepareStatement(sqlQ);
+		
+		stm.setString(1, usuario.getUser());
+		stm.setString(2, usuario.getPass());
+		stm.setString(3, usuario.getEmail());
+		stm.setString(4, usuario.getRole());
+		
+		
+		return stm.executeUpdate();
+		
+		}
 	
 /*	public Usuario usuarioLog(String user , String pass) {
 		

@@ -22,6 +22,7 @@ con = new Conexion("prueba","12345","ventajuegos") ;
 	crossorigin="anonymous">
 
 
+
 </head>
 <body>
 	<div class="d-flex justify-content-center">
@@ -53,16 +54,16 @@ con = new Conexion("prueba","12345","ventajuegos") ;
 					<td><img src="images-upload/<%=a.getImgurl()%>" alt="<%=a.getImgurl()%>" style="height: 100px"></td>
 					<td><a id="btn-eliminar" href="DelJuego?id=<%=a.getId() %>"
 						class="btn btn-danger">ELIMINAR</a> <a
-						href="juegos.jsp?id=<%=a.getId() %>&titulo=<%=a.getTitulo() %>&genero=<%=a.getGenero() %>&precio=<%=a.getPrecio()%> "
+						href="abmjuegos.jsp?id=<%=a.getId() %>&titulo=<%=a.getTitulo() %>&genero=<%=a.getGenero() %>&precio=<%=a.getPrecio()%> "
 						class="btn btn-success">ACTUALIZAR</a></td>
 				</tr>
+
 
 				<%
 }
 %>
 			</tbody>
 		</table>
-		
 		<div class="d-flex justify-content-end mb-3">
 			<button id="nuevo" class="btn btn-warning" onclick="abrirNuevo()">
 				NUEVO</button>
@@ -73,12 +74,6 @@ con = new Conexion("prueba","12345","ventajuegos") ;
 		<div id="form-nuevo" class="row d-none">
 			<div class="col-lg-2"></div>
 			<div class="col-lg-8">
-
-
-
-
-
-
 				<div class="modal fade" id="exampleModal" tabindex="-1"
 					aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -136,6 +131,6 @@ con = new Conexion("prueba","12345","ventajuegos") ;
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 	
-	<script src="script3.js" type="text/javascript"></script>
+	<script src="js/script3.js" type="text/javascript"></script>
 	</body>
 </html>

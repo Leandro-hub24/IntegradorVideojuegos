@@ -85,9 +85,10 @@ public class AddCompra extends HttpServlet {
 							}
 						}
 						else {
-							con.setCompra(new idCompra(idCompra.getIdCompra()+1,Integer.parseInt(idCliente)));
+							con.setCompra(new idCompra(Integer.parseInt(idCliente)));
+							idCompra = con.getNroCompra();
 							while(i < idJuego.length) {
-							if (0 != con.agregarCompra(new Compra(idCompra.getIdCompra()+1,Integer.parseInt(idJuego[i]),Integer.parseInt(cantidadJuego[i]),Integer.parseInt(idCliente)))) {
+							if (0 != con.agregarCompra(new Compra(idCompra.getIdCompra(),Integer.parseInt(idJuego[i]),Integer.parseInt(cantidadJuego[i]),Integer.parseInt(idCliente)))) {
 							
 								pw.println("Compra realizada");
 							}else {
@@ -104,7 +105,7 @@ public class AddCompra extends HttpServlet {
 					}
 					
 				
-		pw.print("<meta http-equiv='refresh' content=5;URL='index.html'>");
+		pw.print("<meta http-equiv='refresh' content=5;URL='userVista.jsp'>");
 	
 		}
 	}

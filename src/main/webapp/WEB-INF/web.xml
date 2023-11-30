@@ -79,4 +79,44 @@
     <servlet-name>AddCompraArray</servlet-name>
     <url-pattern>/AddCompraArray</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginUsuario</display-name>
+    <servlet-name>LoginUsuario</servlet-name>
+    <servlet-class>ar.cac.abm.servlet.LoginUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginUsuario</servlet-name>
+    <url-pattern>/LoginUsuario</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginUser</display-name>
+    <servlet-name>LoginUser</servlet-name>
+    <servlet-class>ar.cac.abm.servlet.LoginUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginUser</servlet-name>
+    <url-pattern>/LoginUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterUser</display-name>
+    <servlet-name>RegisterUser</servlet-name>
+    <servlet-class>ar.cac.abm.servlet.RegisterUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterUser</servlet-name>
+    <url-pattern>/RegisterUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>buscarUser</display-name>
+    <servlet-name>buscarUser</servlet-name>
+    <servlet-class>ar.cac.abm.servlet.buscarUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>buscarUser</servlet-name>
+    <url-pattern>/buscarUser</url-pattern>
+  </servlet-mapping>
 </web-app>
