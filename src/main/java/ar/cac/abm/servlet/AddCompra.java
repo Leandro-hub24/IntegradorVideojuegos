@@ -83,6 +83,7 @@ public class AddCompra extends HttpServlet {
 							}
 							i++;
 							}
+			     			
 						}
 						else {
 							con.setCompra(new idCompra(Integer.parseInt(idCliente)));
@@ -90,22 +91,27 @@ public class AddCompra extends HttpServlet {
 							while(i < idJuego.length) {
 							if (0 != con.agregarCompra(new Compra(idCompra.getIdCompra(),Integer.parseInt(idJuego[i]),Integer.parseInt(cantidadJuego[i]),Integer.parseInt(idCliente)))) {
 							
-								pw.println("Compra realizada");
+								//pw.println("Compra realizada");
 							}else {
-								pw.println("NO SE AGREGO");
+								//pw.println("NO SE AGREGO");
 							}
 							i++;
 							}
 						}
-				      
+						String user = "userVista.jsp?id="+idCliente;
+						response.sendRedirect("compraHecha.jsp?user="+user);
+					
 					
 					} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					String error = "No se pudo realizar la compra";
+	     			String pagina = "userVista.jsp?id="+idCliente;
+	     			response.sendRedirect("error.jsp?mensaje="+error+"&pagina="+pagina);
 					}
 					
 				
-		pw.print("<meta http-equiv='refresh' content=5;URL='userVista.jsp'>");
+		
 	
 		}
 	}

@@ -40,7 +40,7 @@ public class RegisterUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		Usuario usuario = new Usuario(request.getParameter("user-txt"),request.getParameter("pass-txt"),"" ,"user");
+		Usuario usuario = new Usuario(request.getParameter("username"), request.getParameter("password"), request.getParameter("email"),"user");
 		
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
@@ -51,14 +51,18 @@ public class RegisterUser extends HttpServlet {
 		Conexion con = new Conexion("prueba","12345","ventajuegos") ;
 		try {
 			con.agregarUsuario(usuario);
-			pw.println("USUARIO REGISTRADO");
 			
-			pw.print("<meta http-equiv='refresh' content=5;URL='login.html'>");
-			pw.println("<br><br><a href= 'login.html'>Login</a>");
+			response.sendRedirect("fineSesion.jsp");
+			//pw.println("USUARIO REGISTRADO");
+			//pw.print("<meta http-equiv='refresh' content=5;URL='iniciarSesion.html'>");
+			//pw.println("<br><br><a href= 'iniciarSesion.html'>Login</a>");
 		} catch (SQLException e) {
-			pw.println("USUARIO NO REGISTRADO");
-			pw.print("<meta http-equiv='refresh' content=5;URL='register.html'>");
-			pw.println("<br><br><a href= 'register.html'>Register</a>");
+			//pw.println("USUARIO NO REGISTRADO");
+			//pw.print("<meta http-equiv='refresh' content=5;URL='register.html'>");
+			//pw.println("<br><br><a href= 'register.html'>Register</a>");
+			String error = "Usuario no registrado";
+			String pagina = "registro.html";
+			response.sendRedirect("error.jsp?mensaje="+error+"&pagina="+pagina);
 		}
 		
 		

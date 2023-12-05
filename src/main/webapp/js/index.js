@@ -35,7 +35,7 @@ function ajax() {
 function response() {
   if(connection.readyState == 4) {
     datos =  JSON.parse(connection.responseText)
-    alert(connection.responseText)
+    //alert(connection.responseText)
  /*  for (i = 0 ; i < datos.length ; i++){
 	     alert(datos[i]["id"] + " " + datos[i]["titulo"])  
    } */
@@ -59,7 +59,7 @@ function ajax1() {
 function response1() {
   if(connection.readyState == 4) {
     datosCompras =  JSON.parse(connection.responseText)
-    alert(connection.responseText)
+    //alert(connection.responseText)
  /*  for (i = 0 ; i < datos.length ; i++){
 	     alert(datos[i]["id"] + " " + datos[i]["titulo"])  
    } */
@@ -73,8 +73,6 @@ ajax();
 ajax1();
 
 
-alert(datos)
-alert(datosCompras)
 
 let catalogo = datos
 
@@ -109,7 +107,9 @@ function showCard() {
 function todosCard() {
     let load = aleatorio()
     cards.innerHTML = `
+    	<div class="loading">
         <img src="images/loading-${load}.gif" alt="" id="load">
+        </div>
         `;
     setTimeout(function () {
         let i = 0
@@ -130,8 +130,10 @@ function todosCard() {
             i++
         })
     }, 2000);
+    let miCheckBox = document.getElementById("checkbox");
+    if (miCheckBox.checked) {miCheckBox.checked = false;
 }
-
+}
 
 let acc = document.getElementById("acc")
 let aven = document.getElementById("aven")
@@ -141,6 +143,17 @@ let mul = document.getElementById("mul")
 let pla = document.getElementById("pla")
 let rpg = document.getElementById("rpg")
 let tod = document.getElementById("tod")
+
+let acc1 = document.getElementById("acc1")
+let aven1 = document.getElementById("aven1")
+let horr1 = document.getElementById("horr1")
+let lu1 = document.getElementById("lu1")
+let mul1 = document.getElementById("mul1")
+let pla1 = document.getElementById("pla1")
+let rpg1 = document.getElementById("rpg1")
+let tod1 = document.getElementById("tod1")
+
+ 		
 
 function showCant(name, id) {
     let i = 0
@@ -183,11 +196,54 @@ function showCant(name, id) {
     }
 }
 
+function showCant1(name, id) {
+    let i = 0
+    let j = 0
+
+    while (i < catalogo.length) {
+        if (catalogo[i].genero == name) {
+            j++
+        }
+        i++
+    }
+
+
+    switch (id) {
+        case "acc1":
+            acc1.innerHTML = j
+            break
+        case "aven1":
+            aven1.innerHTML = j
+            break
+        case "horr1":
+            horr1.innerHTML = j
+            break
+        case "lu1":
+            lu1.innerHTML = j
+            break
+        case "mul1":
+            mul1.innerHTML = j
+            break
+        case "pla1":
+            pla1.innerHTML = j
+            break
+        case "rpg1":
+            rpg1.innerHTML = j
+            break
+        case "tod1":
+            tod1.innerHTML = i
+        default:
+            break
+    }
+}
+
 function accionCard(a) {
     let i = 0
     let load = aleatorio()
     cards.innerHTML = `
+        <div class="loading">
         <img src="images/loading-${load}.gif" alt="" id="load">
+        </div>
         `;
 
     setTimeout(function () {
@@ -210,6 +266,10 @@ function accionCard(a) {
             i++
         }
     }, 2000);
+    let mCheckBox = document.getElementById("checkbox");
+    if (mCheckBox.checked) {
+        mCheckBox.checked = false;
+}
 }
 
 let carrito = document.getElementById("carrito")
@@ -223,6 +283,7 @@ function aleatorio() {
 }
 
 let cant = document.getElementById("cantCarrito")
+
 function inicioCarr() {
     let c = 0
     cant.innerHTML = c
@@ -455,6 +516,34 @@ let cerrar = document.getElementById("close")
 function cerrarCarrito() {
     carrito.classList.toggle("showCarrito")
 }
+
+let modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+let btn = document.getElementById("boton");
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+let conf = document.getElementById("conf")
+
 
 
 /*function addCompra(){

@@ -49,8 +49,20 @@
 
 	<header class="header">
         <p>AlcoholSoft</p>
+        <div class="usuario">
+            <img src="images/icono1.png" alt="" id="imgUsuario">
+            <span id="nombreUsuario"></span>
+            <span class="material-symbols-outlined" id="arrow" onclick="mostrarCerrar()">
+                arrow_drop_down
+                </span>
+        </div>
+        <div id="conf" class="m conf">
+            <ul>
+                <li><a href="index.html">Cerrar sesion</a></li>
+            </ul>
+        </div>
     </header>
-
+<div class="topCarrus">
     <div class="swiffy-slider slider-item-ratio slider-item-ratio-32x9 slider-nav-chevron slider-nav-autoplay slider-nav-animation slider-nav-animation-fadein"
         id="carousel1" data-slider-nav-autoplay-interval="4000">
         <ul class="slider-container" id="contenedor">
@@ -87,17 +99,33 @@
             <li class=""></li>
         </ul>
     </div>
-
+</div>
     <nav class="menu">
+    	<label class="nav__label" for="checkbox">
+            <i class="fa-solid fa-bars fa-2xl"></i>
+        </label>
+          <input type="checkbox" id="checkbox"/>
+
+        <div class="dropdown">
+
+            <button class="dropbtn">Géneros</button>
+            <ul class="dropdown-content generos">
+                <li class="nav__item" onclick="todosCard()"><span>Todos&nbsp</span><span id="tod1"></span></li>
+                <li class="nav__item" onclick="accionCard('Acción')"><span>Acción&nbsp</span><span id="acc1"></span></li>
+                <li class="nav__item" onclick="accionCard('Aventuras')"><span>Aventuras&nbsp</span><span id="aven1"></span></li>
+                <li class="nav__item" onclick="accionCard('Horror')"><span>Horror&nbsp</span><span id="horr1"></span></li>
+                <li class="nav__item" onclick="accionCard('Lucha')"><span>Lucha&nbsp</span><span id="lu1"></span></li>
+                <li class="nav__item" onclick="accionCard('Multijugador')"><span>Multijugador&nbsp</span><span id="mul1"></span></li>
+                <li class="nav__item" onclick="accionCard('Plataformas')"><span>Plataformas&nbsp</span><span id="pla1"></span></li>
+                <li class="nav__item" onclick="accionCard('RPG')"><span>RPG&nbsp</span><span id="rpg1"></span></li>
+            </ul>
+        </div>
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Sobre nosotros</a></li>
             <li><a href="#">Contacto</a></li>
         </ul>
-        <div class="usuario">
-            <img src="images/icono1.png" alt="" id="imgUsuario">
-            <span id="nombreUsuario"></span>
-        </div>
+        
         <div class="carS">
             <img src="images/carrito-de-compras.png" alt="" id="carri" onclick="showCarrito()"><sup
                 id="cantCarrito"></sup>
@@ -106,7 +134,7 @@
 
     <main>
 
-        <aside>
+        <aside class="aside">
             <ul>
                 <h3>Generos</h3>
                 <li onclick="todosCard()"><span>Todos</span><span id="tod"></span></li>
@@ -225,6 +253,11 @@
             <div class="contact-us">
                 <h2 class="brand">AlcoholSoft</h2>
                 <p>Somos expertos en la venta de juegos</p>
+                <ul class="nav__foot">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
             </div>
             <div class="social-media">
                 <a href="./" class="social-media-icon">
@@ -261,6 +294,14 @@
         showCant('Multijugador', 'mul')
         showCant('Plataformas', 'pla')
         showCant('RPG', 'rpg')
+        showCant1('Todos', 'tod1')
+        showCant1('Acción', 'acc1')
+        showCant1('Aventuras', 'aven1')
+        showCant1('Horror', 'horr1')
+        showCant1('Lucha', 'lu1')
+        showCant1('Multijugador', 'mul1')
+        showCant1('Plataformas', 'pla1')
+        showCant1('RPG', 'rpg1')
     </script>
 </body>
 </html>

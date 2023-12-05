@@ -43,8 +43,8 @@ public class LoginUser extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();		
 		Usuario usuario = null;
-		String user = request.getParameter("user-txt");
-		String pass = request.getParameter("pass-txt");
+		String user = request.getParameter("username");
+		String pass = request.getParameter("password");
 		
 		
 		if ( user != "" && pass != "" ) {
@@ -71,15 +71,22 @@ public class LoginUser extends HttpServlet {
              }
 		  
              else {
-            	 response.sendRedirect("login.html?mensaje=error");
+            	 //response.sendRedirect("login.html?mensaje=error");
+            	String error = "User o Password invalidos";
+     			String pagina = "iniciarSesion.html";
+     			response.sendRedirect("error.jsp?mensaje="+error+"&pagina="+pagina);
      		}
 	
 		 
 		}
 		else {
-			pw.print("<h1>DEBE INICIAR SESSION</h1>");
-			pw.print("<meta http-equiv='refresh' content=5;URL='login.html'>");
-			pw.println("<br><br><a href= 'login.html'>Login</a>");
+			String error = "Usuario o Contraseña invalidos";
+			String pagina = "iniciarSesion.html";
+			response.sendRedirect("error.jsp?mensaje="+error+"&pagina="+pagina);
+			
+			//pw.print("<h1>DEBE INICIAR SESSION</h1>");
+			//pw.print("<meta http-equiv='refresh' content=5;URL='login.html'>");
+			//pw.println("<br><br><a href= 'login.html'>Login</a>");
 		}
 		
 		

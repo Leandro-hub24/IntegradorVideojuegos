@@ -22,8 +22,11 @@
 <body>
     <header class="header">
         <p>AlcoholSoft</p>
+        <div class="login">
+            <a href="iniciarSesion.html" id="linkLogin"><button id="botonLogin">Login</button></a>
+        </div>
     </header>
-
+	<div class="topCarrus">
     <div class="swiffy-slider slider-item-ratio slider-item-ratio-32x9 slider-nav-chevron slider-nav-autoplay slider-nav-animation slider-nav-animation-fadein"
         id="carousel1" data-slider-nav-autoplay-interval="4000">
         <ul class="slider-container" id="contenedor">
@@ -60,16 +63,36 @@
             <li class=""></li>
         </ul>
     </div>
+    </div>
 
     <nav class="menu">
+		
+		<label class="nav__label" for="checkbox">
+            <i class="fa-solid fa-bars fa-2xl"></i>
+        </label>
+          <input type="checkbox" id="checkbox"/>
+
+        <div class="dropdown">
+
+            <button class="dropbtn">Géneros</button>
+            <ul class="dropdown-content generos">
+                <li class="nav__item" onclick="todosCard()"><span>Todos&nbsp</span><span id="tod1"></span></li>
+                <li class="nav__item" onclick="accionCard('Acción')"><span>Acción&nbsp</span><span id="acc1"></span></li>
+                <li class="nav__item" onclick="accionCard('Aventuras')"><span>Aventuras&nbsp</span><span id="aven1"></span></li>
+                <li class="nav__item" onclick="accionCard('Horror')"><span>Horror&nbsp</span><span id="horr1"></span></li>
+                <li class="nav__item" onclick="accionCard('Lucha')"><span>Lucha&nbsp</span><span id="lu1"></span></li>
+                <li class="nav__item" onclick="accionCard('Multijugador')"><span>Multijugador&nbsp</span><span id="mul1"></span></li>
+                <li class="nav__item" onclick="accionCard('Plataformas')"><span>Plataformas&nbsp</span><span id="pla1"></span></li>
+                <li class="nav__item" onclick="accionCard('RPG')"><span>RPG&nbsp</span><span id="rpg1"></span></li>
+            </ul>
+        </div>
+
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Sobre nosotros</a></li>
             <li><a href="#">Contacto</a></li>
         </ul>
-        <div class="login">
-            <a href="login.html" id="linkLogin"><button id="botonLogin">Login</button></a>
-        </div>
+        
         <div class="carS">
             <img src="images/carrito-de-compras.png" alt="" id="carri" onclick="showCarrito()"><sup
                 id="cantCarrito"></sup>
@@ -78,7 +101,7 @@
 
     <main>
 
-        <aside>
+        <aside class="aside">
             <ul>
                 <h3>Generos</h3>
                 <li onclick="todosCard()"><span>Todos</span><span id="tod"></span></li>
@@ -119,7 +142,8 @@
                     <button class=""></button>
                 </div>
             </div> -->
-
+		
+		
             <div class="swiffy-slider slider-nav-chevron slider-nav-autoplay slider-nav-animation slider-nav-animation-fadein" data-slider-nav-autoplay-interval="4000" id="carousel2">
                 <ul class="slider-container">
                     <li class="slide-visible">
@@ -144,6 +168,7 @@
                     <li class=""></li>
                 </ul>
             </div>
+		
 
         </aside>
 
@@ -164,10 +189,28 @@
         </section>
     </main>
     
+    <!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="h3">ERROR</h3>
+    <hr id="line">
+    <p id="pModal">Debe iniciar sesión antes de realizar la compra.</p>
+    <div class="login2">
+            <a href="iniciarSesion.html" id="linkLogin2"><button id="botonLogin2">Login</button></a>
+    </div>
+  </div>
+
+</div>
     
    <!-- <input type="text" style="display: none;" id="idJuego-txt" name="idJuego-txt">
     <input type="text" style="display: none;" id="cantidadJuego-txt" name="cantidadJuego-txt"> -->
-    <form method="post" action="">
+    
     <div class="carrito" id="carrito">
         <span class="material-symbols-outlined" id="close" onclick="cerrarCarrito()">
             close
@@ -184,11 +227,13 @@
                 	<p>Total a pagar: </p>
                 	<span id="total"></span>
             	</div>
-            	<button formaction="AddCompra" formenctype="application/x-www-form-urlencoded" id="boton">Comprar</button>
+            	<button id="boton">Comprar</button>
         	</div>
         
     </div>
-    </form>
+    
+    
+    
     
     <!-- footer -->
 
@@ -197,6 +242,11 @@
             <div class="contact-us">
                 <h2 class="brand">AlcoholSoft</h2>
                 <p>Somos expertos en la venta de juegos</p>
+                <ul class="nav__foot">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
             </div>
             <div class="social-media">
                 <a href="./" class="social-media-icon">
@@ -217,6 +267,7 @@
         defer></script>
     <script src="js/index.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script src="https://kit.fontawesome.com/7e57fe65f9.js" crossorigin="anonymous"></script>
     <script>
         AOS.init();
         inicioCarr()
@@ -229,6 +280,14 @@
         showCant('Multijugador', 'mul')
         showCant('Plataformas', 'pla')
         showCant('RPG', 'rpg')
+        showCant1('Todos', 'tod1')
+        showCant1('Acción', 'acc1')
+        showCant1('Aventuras', 'aven1')
+        showCant1('Horror', 'horr1')
+        showCant1('Lucha', 'lu1')
+        showCant1('Multijugador', 'mul1')
+        showCant1('Plataformas', 'pla1')
+        showCant1('RPG', 'rpg1')		
     </script>
 </body>
 
