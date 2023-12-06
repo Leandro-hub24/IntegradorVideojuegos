@@ -104,7 +104,7 @@ public  idCompra getNroCompra() throws SQLException   {
 
 public int eliminarJuego(int id) throws SQLException {
 	
-	return this.stm.executeUpdate("delete from juegos where id="+ id );
+	return stm.executeUpdate("delete from juegos where id="+ id );
 	
 }
 	
