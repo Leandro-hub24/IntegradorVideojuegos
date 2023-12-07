@@ -528,6 +528,7 @@ function mostrarCerrar(){
     conf.classList.toggle("m")
 }
 
+
 /*function addCompra(){
 	$.ajax({
    url: AddCompraArray,

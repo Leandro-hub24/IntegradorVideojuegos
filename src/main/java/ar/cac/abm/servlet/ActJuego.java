@@ -76,14 +76,12 @@ public class ActJuego extends HttpServlet {
 			if (juegoObj.getImgurl().equals("")) {
 
 				if (0 != con.actualizarJuego(juegoObj)) {
-					pw.println("SE ACTUALIZO REGISTRO");
-					pw.println(id);
-
+					//pw.println("SE ACTUALIZO REGISTRO");
+					//pw.println(id);
+					response.sendRedirect("crud.jsp?mensaje=Se ha actualizado el juego con ID "+id);
 				}
 
-				else {
-					pw.println("NO SE ACTUALIZO");
-				}
+				
 
 			}
 
@@ -92,23 +90,22 @@ public class ActJuego extends HttpServlet {
 				if (0 != con.actualizarJuego(juegoObj)) {
 
 					archivo.write(context + "/" + foto); // Escribimos el archivo al disco duro del servidor.
-					pw.println("SE ACTUALIZO REGISTRO");
-					pw.println(id);
+					response.sendRedirect("crud.jsp?mensaje=Se ha actualizado el juego con ID "+id);
+					//pw.println("SE ACTUALIZO REGISTRO");
+					//pw.println(id);
 
 				}
 
-				else {
-					pw.println("NO SE ACTUALIZO");
-				}
-
+			
 			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			response.sendRedirect("crud.jsp?mensaje=No se pudo actualizar el juego con ID "+id);
 		}
-		pw.print("<meta http-equiv='refresh' content=5;URL='juegos.jsp'>");
-		pw.println("<br><br><a href= 'juegos.jsp'>Home</a>");
+		//pw.print("<meta http-equiv='refresh' content=5;URL='juegos.jsp'>");
+		//pw.println("<br><br><a href= 'juegos.jsp'>Home</a>");
 
 	}
 

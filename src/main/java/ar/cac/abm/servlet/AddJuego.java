@@ -72,19 +72,17 @@ public class AddJuego extends HttpServlet {
 		try {
 			if (0 != con.agregarJuego(new Juego(titulo,genero,precio,foto))) {
 				archivo.write(context + "/" + foto); // Escribimos el archivo al disco duro del servidor.
-				pw.println("SE AGREGO REGISTRO");
-			    pw.println(titulo);
+			    response.sendRedirect("crud.jsp?mensaje=Se agrego correctamente el juego "+titulo+" a la base de datos");
 		        
 		      
 			}
-			else {pw.println("NO SE AGREGO");}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			response.sendRedirect("crud.jsp?mensaje=Error al intentar agregar el juego "+titulo+"a la base de datos");
 		}
 		
-		pw.print("<meta http-equiv='refresh' content=5;URL='juegos.jsp'>");
-		pw.println("<br><br><a href= 'juegos.jsp'>Home</a>");
 	}
 
 }

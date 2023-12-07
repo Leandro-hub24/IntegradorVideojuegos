@@ -59,7 +59,7 @@ public class LoginUser extends HttpServlet {
       			
             	if (usuario.getRole().equals("admin")) { 
             		
-            		response.sendRedirect("abmjuegos.jsp");
+            		response.sendRedirect("juegos.jsp");
             	}
             	
             	else {

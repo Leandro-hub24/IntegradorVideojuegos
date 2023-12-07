@@ -34,7 +34,7 @@ public class DelJuego extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		Conexion con = new Conexion("prueba", "12345", "ventajuegos");
-		Mensaje mensaje = new Mensaje();
+		//Mensaje mensaje = new Mensaje();
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		if (request.getParameter("id") != null) {
@@ -42,28 +42,21 @@ public class DelJuego extends HttpServlet {
 
 			try {
 				if (0 != con.eliminarJuego(id)) {
-					mensaje.setValor("Error");
-					mensaje.setMensaje("SE ELIMINO EL REGISTRO NUMERO " + id);
-					pw.println("Se Elimino el registro " + id);
-				} else {
-
-					pw.println("No se Elimino Ningun Registro");
-				}
+					response.sendRedirect("crud.jsp?mensaje=Se elimino satisfactoriamente el juego con ID "+id);
+				} 
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
+				response.sendRedirect("crud.jsp?mensaje=Error al intentar eliminar el juego con ID "+id);
 			}
 
-			pw.print("<meta http-equiv='refresh' content=5;URL='juegos.jsp'>");
-			pw.println("<br><br><a href= 'juegos.jsp'>Home</a>");
+		
 		}
 
 		else {
 
-			pw.println("id invalido");
-			pw.print("<meta http-equiv='refresh' content=5;URL='juegos.jsp'>");
-			pw.println("<br><br><a href= 'juegos.jsp'>Home</a>");
+			response.sendRedirect("crud.jsp?mensaje=No se pudo eliminar, ID invalido");
 
 		}
 

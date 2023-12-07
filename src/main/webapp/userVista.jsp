@@ -223,6 +223,7 @@
     
    <!-- <input type="text" style="display: none;" id="idJuego-txt" name="idJuego-txt">
     <input type="text" style="display: none;" id="cantidadJuego-txt" name="cantidadJuego-txt"> -->
+  
      <form method="post" action="">
     <div class="carrito" id="carrito">
         <span class="material-symbols-outlined" id="close" onclick="cerrarCarrito()">
@@ -245,6 +246,7 @@
        
     </div>
      </form>
+     
     
     <!-- footer -->
 
