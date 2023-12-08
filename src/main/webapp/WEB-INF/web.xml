@@ -119,4 +119,24 @@
     <servlet-name>buscarUser</servlet-name>
     <url-pattern>/buscarUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListaidCompraJson</display-name>
+    <servlet-name>ListaidCompraJson</servlet-name>
+    <servlet-class>ar.cac.abm.servlet.ListaidCompraJson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListaidCompraJson</servlet-name>
+    <url-pattern>/ListaidCompraJson</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListaUsuarioJson</display-name>
+    <servlet-name>ListaUsuarioJson</servlet-name>
+    <servlet-class>ar.cac.abm.servlet.ListaUsuarioJson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListaUsuarioJson</servlet-name>
+    <url-pattern>/ListaUsuarioJson</url-pattern>
+  </servlet-mapping>
 </web-app>

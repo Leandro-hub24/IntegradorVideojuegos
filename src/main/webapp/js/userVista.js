@@ -26,7 +26,7 @@ var datosCompras;
 //let imgUs = aleatorio1();
 //document.getElementById("imgUsuario").setAttribute(src, `images/icono${imgUs}.png`)
 function aleatorio1() {
-    return Math.round(Math.random() * (5 - 4) + 1);
+    return Math.round((Math.random() * (5 - 1) + 1));
 }
 
 function ajax() {
@@ -93,6 +93,13 @@ let compras = datosCompras
 let cards = document.getElementById("cards")
 let compra = ([{idJuego: "", cantidadJuego: "", idCliente: id1}])
 let cJ = 0
+
+function icono(){
+	document.getElementById("imgUsuario").setAttribute("src",`images/icono${aleatorio1()}.png`)
+	document.getElementById("imgUsuario").setAttribute("style",`background-color: white`)
+}
+
+icono()
 
 function showCard() {
     let i = 0

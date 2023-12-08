@@ -23,6 +23,15 @@ public class Usuario {
 		this.role = role;
 	}
 	
+	
+	
+	public Usuario(int id, String user, String email) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.email = email;
+	}
+	
 	public Usuario() {
 
 	}

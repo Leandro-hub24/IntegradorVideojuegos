@@ -16,18 +16,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ar.cac.abm.clases.Compra;
 import ar.cac.abm.clases.Conexion;
-
+import ar.cac.abm.clases.Usuario;
 
 /**
- * Servlet implementation class ListaJuegosJson
+ * Servlet implementation class ListaUsuarioJson
  */
-public class ListaComprasJson extends HttpServlet {
+public class ListaUsuarioJson extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListaComprasJson() {
+    public ListaUsuarioJson() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,7 +40,7 @@ public class ListaComprasJson extends HttpServlet {
 		Conexion con;
 
 		con = new Conexion("prueba","12345","ventajuegos") ;
-		ArrayList<Compra> compras = new ArrayList<Compra>();
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		ObjectMapper mapper = new ObjectMapper();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
@@ -49,9 +49,9 @@ public class ListaComprasJson extends HttpServlet {
 	    System.out.print(var_sesion.getAttribute("user"));
 		
 		try {
-			for( Compra a : con.listaCompras()) {
+			for( Usuario a : con.listaUsuarios()) {
 				
-				compras.add(new Compra(a.getId(), a.getIdCompra(),a.getIdJuego(),a.getCantidadJuego(),a.getIdCliente()));
+				usuarios.add(new Usuario(a.getId(), a.getUser(),a.getEmail()));
 							
 			}
 		} catch (SQLException e) {
@@ -61,10 +61,8 @@ public class ListaComprasJson extends HttpServlet {
 		
 		
 		
-		String json = mapper.writeValueAsString(compras);
+		String json = mapper.writeValueAsString(usuarios);
         pw.print(json);
-	        
-	       // System.out.println(json);
 	}
 
 	/**
@@ -72,7 +70,7 @@ public class ListaComprasJson extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
 }

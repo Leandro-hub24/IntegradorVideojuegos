@@ -70,6 +70,25 @@ public  Usuario listarUsuario(int id) throws SQLException   {
 	   			
 	}
 
+public  List<Usuario> listaUsuarios() throws SQLException   {
+	
+	   ResultSet rs =  this.stm.executeQuery("select * from usuarios");
+			   
+	   ArrayList<Usuario> user = new ArrayList<Usuario>();
+			
+		while (rs.next()){
+			
+			user.add(new Usuario(rs.getInt(1),rs.getString(2) ,rs.getString(4)));
+					
+		}
+		
+		
+		
+		return user;
+		
+	   			
+	}
+
 public  List<Compra> listaCompras() throws SQLException   {
 	
 	   ResultSet rs =  this.stm.executeQuery("select * from compras");
@@ -77,13 +96,31 @@ public  List<Compra> listaCompras() throws SQLException   {
 			
 		while (rs.next()){
 			
-			compra.add(new Compra(rs.getInt(1),rs.getInt(2) ,rs.getInt(3), rs.getInt(4)));
+			compra.add(new Compra(rs.getInt(1),rs.getInt(2) ,rs.getInt(3), rs.getInt(4), rs.getInt(5)));
 					
 		}
 		
 		
 		
 		return compra ;
+		
+	   			
+	}
+
+public  List<idCompra> listaidCompra() throws SQLException   {
+	
+	   ResultSet rs =  this.stm.executeQuery("select * from compra");
+	   ArrayList<idCompra> idCompra = new ArrayList<idCompra>();
+			
+		while (rs.next()){
+			
+			idCompra.add(new idCompra(rs.getInt(1),rs.getInt(2)));
+					
+		}
+		
+		
+		
+		return idCompra ;
 		
 	   			
 	}

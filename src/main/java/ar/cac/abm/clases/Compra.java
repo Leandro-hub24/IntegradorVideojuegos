@@ -18,6 +18,7 @@ public class Compra {
 		this.cantidadJuego = cantidadJuego;
 		this.idCliente = idCliente;
 	}
+	
 
 	public Compra(int id, int idCompra, int idJuego, int cantidadJuego, int idCliente) {
 		super();
@@ -27,7 +28,7 @@ public class Compra {
 		this.cantidadJuego = cantidadJuego;
 		this.idCliente = idCliente;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -67,6 +68,8 @@ public class Compra {
 	public void setIdCompra(int idCompra) {
 		this.idCompra = idCompra;
 	}
+
+	
 	
 
 }

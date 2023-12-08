@@ -50,7 +50,7 @@
 	<header class="header">
         <p>AlcoholSoft</p>
         <div class="usuario">
-            <img src="images/icono1.png" alt="" id="imgUsuario">
+            <img src="" alt="" id="imgUsuario">
             <span id="nombreUsuario"></span>
             <span class="material-symbols-outlined" id="arrow" onclick="mostrarCerrar()">
                 arrow_drop_down

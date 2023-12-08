@@ -14,20 +14,19 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ar.cac.abm.clases.Compra;
+import ar.cac.abm.clases.idCompra;
 import ar.cac.abm.clases.Conexion;
 
-
 /**
- * Servlet implementation class ListaJuegosJson
+ * Servlet implementation class ListaidCompraJson
  */
-public class ListaComprasJson extends HttpServlet {
+public class ListaidCompraJson extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListaComprasJson() {
+    public ListaidCompraJson() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,7 +39,7 @@ public class ListaComprasJson extends HttpServlet {
 		Conexion con;
 
 		con = new Conexion("prueba","12345","ventajuegos") ;
-		ArrayList<Compra> compras = new ArrayList<Compra>();
+		ArrayList<idCompra> idCompra = new ArrayList<idCompra>();
 		ObjectMapper mapper = new ObjectMapper();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
@@ -49,9 +48,9 @@ public class ListaComprasJson extends HttpServlet {
 	    System.out.print(var_sesion.getAttribute("user"));
 		
 		try {
-			for( Compra a : con.listaCompras()) {
+			for( idCompra a : con.listaidCompra()) {
 				
-				compras.add(new Compra(a.getId(), a.getIdCompra(),a.getIdJuego(),a.getCantidadJuego(),a.getIdCliente()));
+				idCompra.add(new idCompra(a.getIdCompra(),a.getIdCliente()));
 							
 			}
 		} catch (SQLException e) {
@@ -61,7 +60,7 @@ public class ListaComprasJson extends HttpServlet {
 		
 		
 		
-		String json = mapper.writeValueAsString(compras);
+		String json = mapper.writeValueAsString(idCompra);
         pw.print(json);
 	        
 	       // System.out.println(json);
@@ -72,7 +71,7 @@ public class ListaComprasJson extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
 }

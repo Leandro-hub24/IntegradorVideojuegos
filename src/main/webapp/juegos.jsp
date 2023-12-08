@@ -14,7 +14,7 @@ con = new Conexion("prueba","12345","ventajuegos") ;
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SISTEMA DE JUEGOS</title>
+<title>ADMINISTRACION DE JUEGOS</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -24,8 +24,12 @@ con = new Conexion("prueba","12345","ventajuegos") ;
 
 </head>
 <body>
-	<div class="d-flex justify-content-center">
-		<h1 class="fw-bolder">ADMINISTRACION DE JUEGOS</h1>
+<div class="d-flex">
+<a class="btn btn-primary mt-3 mb-3 ms-3 fw-bolder" href="administracion.jsp">VOLVER AL MENU</a>
+</div>
+
+	<div class="d-flex justify-content-center mb-6">
+		<h1 class="fw-bolder mb-3">ADMINISTRACION DE JUEGOS</h1>
 	</div>
 
 	<div class="container">
