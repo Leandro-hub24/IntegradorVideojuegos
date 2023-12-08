@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2023 a las 02:22:15
+-- Tiempo de generación: 08-12-2023 a las 01:50:40
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -37,24 +37,17 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`idCompra`, `idCliente`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(5, 1),
-(8, 1),
-(9, 1),
-(10, 1),
 (11, 2),
 (12, 2),
 (13, 2),
 (14, 2),
-(15, 1),
 (16, 7),
 (17, 7),
 (18, 7),
 (19, 9),
-(20, 6);
+(20, 6),
+(21, 2),
+(22, 12);
 
 -- --------------------------------------------------------
 
@@ -76,20 +69,6 @@ CREATE TABLE `compras` (
 --
 
 INSERT INTO `compras` (`id`, `idCompra`, `idJuego`, `cantidadJuego`, `idCliente`, `fechaCompras`) VALUES
-(7, 1, 3, 1, 1, '2023-11-15 00:59:21'),
-(8, 2, 3, 2, 1, '2023-11-15 01:01:19'),
-(9, 2, 4, 3, 1, '2023-11-15 01:01:19'),
-(10, 2, 5, 1, 1, '2023-11-15 01:01:19'),
-(11, 3, 4, 1, 1, '2023-11-15 01:04:42'),
-(12, 3, 3, 1, 1, '2023-11-15 01:04:42'),
-(13, 3, 15, 1, 1, '2023-11-15 01:04:42'),
-(14, 3, 16, 1, 1, '2023-11-15 01:04:43'),
-(15, 4, 9, 1, 1, '2023-11-15 01:25:08'),
-(16, 5, 8, 1, 1, '2023-11-15 13:06:58'),
-(17, 6, 3, 3, 1, '2023-11-15 13:21:39'),
-(18, 6, 15, 2, 1, '2023-11-15 13:21:39'),
-(19, 9, 8, 1, 1, '2023-11-15 13:29:04'),
-(20, 10, 3, 1, 1, '2023-11-22 14:26:46'),
 (21, 11, 1, 1, 2, '2023-11-22 14:29:18'),
 (22, 11, 7, 1, 2, '2023-11-22 14:29:18'),
 (23, 12, 3, 1, 2, '2023-11-22 15:56:58'),
@@ -100,9 +79,6 @@ INSERT INTO `compras` (`id`, `idCompra`, `idJuego`, `cantidadJuego`, `idCliente`
 (28, 14, 8, 1, 2, '2023-11-27 17:47:37'),
 (29, 14, 7, 1, 2, '2023-11-27 17:47:37'),
 (30, 14, 2, 1, 2, '2023-11-27 17:47:37'),
-(31, 15, 3, 1, 1, '2023-11-28 18:42:37'),
-(32, 15, 4, 1, 1, '2023-11-28 18:42:37'),
-(33, 15, 5, 1, 1, '2023-11-28 18:42:37'),
 (34, 16, 4, 1, 7, '2023-12-04 17:40:48'),
 (35, 17, 18, 1, 7, '2023-12-04 17:42:29'),
 (36, 17, 17, 1, 7, '2023-12-04 17:42:29'),
@@ -110,7 +86,14 @@ INSERT INTO `compras` (`id`, `idCompra`, `idJuego`, `cantidadJuego`, `idCliente`
 (38, 18, 16, 1, 7, '2023-12-04 17:44:10'),
 (39, 19, 5, 1, 9, '2023-12-04 17:45:43'),
 (40, 19, 6, 1, 9, '2023-12-04 17:45:43'),
-(41, 20, 9, 1, 6, '2023-12-04 17:53:05');
+(41, 20, 9, 1, 6, '2023-12-04 17:53:05'),
+(42, 21, 4, 2, 2, '2023-12-06 13:48:25'),
+(43, 21, 5, 2, 2, '2023-12-06 13:48:25'),
+(44, 21, 2, 1, 2, '2023-12-06 13:48:25'),
+(45, 21, 11, 1, 2, '2023-12-06 13:48:25'),
+(46, 21, 18, 1, 2, '2023-12-06 13:48:25'),
+(47, 22, 16, 1, 12, '2023-12-06 13:50:21'),
+(48, 22, 15, 1, 12, '2023-12-06 13:50:21');
 
 -- --------------------------------------------------------
 
@@ -147,8 +130,10 @@ INSERT INTO `juegos` (`id`, `titulo`, `genero`, `precio`, `imgUrl`) VALUES
 (14, 'A Plague Tale: Innocence', 'Horror', 3000, 'plague.jpeg'),
 (15, 'Resident Evil 4 (2005)', 'Horror', 1500, 'resident.jpeg'),
 (16, 'Resident Evil 6', 'Horror', 6000, 'resident6.jpeg'),
-(17, 'Street Fighter 6 Deluxe Edition', 'Lucha', 4000, 'street.jpg'),
-(18, 'The Witcher 3: Wild Hunt', 'RPG', 4500, 'witcher.jpg');
+(17, 'Street Fighter 6', 'Lucha', 4000, 'street.jpg'),
+(18, 'The Witcher 3: Wild Hunt', 'RPG', 4500, 'witcher.jpg'),
+(21, 'Dark Souls 3', 'RPG', 3500, 'DarkSouls3.jpg'),
+(23, 'Biomutant', 'Acción', 2000, 'Biomutant.jpeg');
 
 -- --------------------------------------------------------
 
@@ -176,7 +161,8 @@ INSERT INTO `usuarios` (`id`, `usuario`, `password`, `email`, `rol`) VALUES
 (7, 'Juan', 'Juan1234', 'juan@algo.com', 'user'),
 (8, 'Sofia', 'Sofia1234', 'sofia@algo.com', 'user'),
 (9, 'Maria', 'Maria1234', 'maria@algo.com', 'user'),
-(10, 'Luis', 'Luis1234', 'luis@algo.com', 'user');
+(10, 'Luis', 'Luis1234', 'luis@algo.com', 'user'),
+(12, 'Martin', 'Martin1234', 'martin@algo.com', 'user');
 
 --
 -- Índices para tablas volcadas
@@ -218,25 +204,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
