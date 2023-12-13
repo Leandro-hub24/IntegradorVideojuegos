@@ -48,7 +48,7 @@
 	
 
 	<header class="header">
-        <p>AlcoholSoft</p>
+        <p>AlcoholSoft <img id="logo" src="images/logo.png"></p>
         <div class="usuario">
             <img src="" alt="" id="imgUsuario">
             <span id="nombreUsuario"></span>
@@ -186,9 +186,7 @@
                     </li>
                     <li class="">
                         <div id="slide3"><img src="images/carrusel2-3.png" style="max-width: 100%;height: auto;"></div>
-                    </li>
-
-                    </li>
+                    </li>    
                 </ul>
             
                 <button type="button" class="slider-nav"></button>

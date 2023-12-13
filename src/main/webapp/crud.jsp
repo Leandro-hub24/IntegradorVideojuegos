@@ -14,7 +14,7 @@
     <div class="container">
         <form class="login-form">
             <h2><%=request.getParameter("mensaje") %></h2>
-            <a id="boton" href="abmjuegos.jsp">VOLVER</a>
+            <a id="boton" href="juegos.jsp">VOLVER</a>
             <% pw.print("<meta http-equiv='refresh' content=5;URL=juegos.jsp>"); %>
         </form>
     </div>
